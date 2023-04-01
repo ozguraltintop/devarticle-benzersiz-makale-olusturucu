@@ -1,0 +1,900 @@
+/**
+***************************************************************
+* AUTHOR : CKav
+* PROJECT : Covy - Modern HTML Template
+* Purchase : https://themeforest.net/user/c-kav 
+*
+* Copyright 2019-2020 CKav
+* NOTE : This file licensed to CKav - https://themeforest.net/user/c-kav and it is strictly prohibited to copy or reuse it.
+***************************************************************
+*/
+/**
+*****************************************************************
+* This file is licensed to CKav
+* It's not allowed to copy or reuse it Copyright CKav 2019-2020
+* CKavArt : http://ckavart.com/
+*****************************************************************
+*/
+/**
+*****************************************************************
+INDEX
+*****************************************************************
+- VARIABLES
+- COLOR VARIABLES
+- MIXINS 
+- THEME MIXINS
+
+- GLOBAL
+- TYPOGRAPHY
+- LAYOUT
+- HEADER
+- CONTENT
+- SIDEBAR
+- FOOTER
+*****************************************************************
+*/
+/*=============================================
+= COMMON USE AND RESET
+=============================================*/
+/*----------  RESET DEFAULT CSS  ----------*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+/*----------  COMMON CSS  ----------*/
+html {
+  font-size: 14px;
+}
+img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+a,
+button,
+.more-link,
+.more-link *,
+.hover-box * {
+  transition: all 0.3s ease-out;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  position: relative;
+}
+/*=============================================
+= FONT ALLOCATION 
+=============================================*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.heading .heading-section,
+.heading-content,
+.heading-page,
+.navigation-a {
+  font-family: 'Montserrat', sans-serif;
+}
+body,
+p,
+span,
+.button {
+  font-family: 'Roboto', sans-serif;
+}
+/*=============================================
+= LAYOUT HELPER 
+=============================================*/
+.full-wh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+/*=============================================
+= BACKGROUND
+=============================================*/
+.bg-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 0;
+}
+[data-bgholder="background-image"] {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body .vegas-container {
+  position: absolute;
+}
+/*=============================================
+= YOUTUBE BACKGROUND
+=============================================*/
+.loaded .ytplayer-container {
+  display: block;
+}
+.loaded .placeholder-image {
+  opacity: 0;
+}
+.ytplayer-container {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  min-width: 100%;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+.placeholder-image {
+  height: 100%;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+.ytplayer-shield {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+.ytplayer-player {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50% !important;
+}
+/*=============================================
+= BASE LAYOUT
+=============================================*/
+/*----------  HEADER  ----------*/
+.ckav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+}
+.ckav-header .logo-wrapper {
+  display: inline-flex;
+}
+/*----------  MENU ICON  ----------*/
+.menu-icon-wrp {
+  filter: blur(0px);
+  transition: all 0.4s ease-out;
+}
+.active-popup .menu-icon-wrp {
+  filter: blur(15px);
+  transition: all 0.4s ease-out;
+}
+/*----------  NAVIGATION  ----------*/
+.navigation-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 8;
+  transition: all 0.4s ease-out;
+}
+.active-popup .navigation-section {
+  transition: all 0.4s ease-out;
+}
+/*----------  INTRO-SECTION  ----------*/
+.intro-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  z-index: 1;
+  transition: all 0.4s ease-out;
+}
+.active-popup .intro-section {
+  transition: all 0.4s ease-out;
+}
+/*----------  POPUP SECTION  ----------*/
+.popup-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 9;
+  padding: 40px;
+  background-color: transparent;
+  opacity: 0;
+  display: none;
+  visibility: hidden;
+  transition: all 0.4s ease-out;
+}
+.popup-section .inner-wrapper {
+  width: 1140px;
+  max-width: 1140px;
+  transform: translateY(40px);
+  transition: all 0.4s ease-out;
+}
+.active-popup .current-popup.popup-section {
+  opacity: 1;
+  display: flex;
+  visibility: visible;
+  height: auto;
+  overflow: visible;
+  min-height: 100vh;
+  background-color: rgba(200, 233, 255, 0.8);
+  transition: all 0.4s ease-out;
+}
+.active-popup .current-popup.popup-section .inner-wrapper {
+  transform: translateY(0px);
+  transition: all 0.4s ease-out;
+}
+/*=============================================
+= TYPOGRAPHY
+=============================================*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  line-height: 1.14;
+}
+.font-01,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.heading .heading-section,
+.heading-content,
+.heading-page {
+  font-family: 'Montserrat', sans-serif;
+}
+.font-02,
+body,
+.heading-sub,
+.heading-section-sub,
+.heading-content-sub,
+.heading-page-sub,
+p,
+.heading-pre {
+  font-family: 'Roboto', sans-serif;
+}
+/*----------  HEADING WEIGHT  ----------*/
+.heading {
+  font-weight: 700;
+}
+.heading-content {
+  font-weight: 500;
+}
+.heading-section {
+  font-weight: 600;
+}
+.heading-page {
+  font-weight: 700;
+}
+/*----------  HEADING SIZE  ----------*/
+.heading,
+.heading-content,
+.heading-section,
+.heading-page {
+  font-size: 2.57142857rem;
+  margin-bottom: 1.07142857rem;
+}
+.heading.xxxlarge,
+.heading-content.xxxlarge,
+.heading-section.xxxlarge,
+.heading-page.xxxlarge {
+  font-size: 7.14285714rem;
+}
+.heading.xxlarge,
+.heading-content.xxlarge,
+.heading-section.xxlarge,
+.heading-page.xxlarge {
+  font-size: 5.71428571rem;
+}
+.heading.xlarge,
+.heading-content.xlarge,
+.heading-section.xlarge,
+.heading-page.xlarge {
+  font-size: 5rem;
+}
+.heading.large,
+.heading-content.large,
+.heading-section.large,
+.heading-page.large {
+  font-size: 3.57142857rem;
+}
+.heading.normal,
+.heading-content.normal,
+.heading-section.normal,
+.heading-page.normal {
+  font-size: 2.85714286rem;
+}
+.heading.medium,
+.heading-content.medium,
+.heading-section.medium,
+.heading-page.medium {
+  font-size: 2.28571429rem;
+}
+.heading.small,
+.heading-content.small,
+.heading-section.small,
+.heading-page.small {
+  font-size: 1.71428571rem;
+}
+.heading.mini,
+.heading-content.mini,
+.heading-section.mini,
+.heading-page.mini {
+  font-size: 1.28571429rem;
+}
+.heading.tiny,
+.heading-content.tiny,
+.heading-section.tiny,
+.heading-page.tiny {
+  font-size: 1.14285714rem;
+}
+/*----------  SUB HEADING  ----------*/
+.heading-sub,
+.heading-section-sub,
+.heading-content-sub,
+.heading-page-sub {
+  font-size: 1.57142857rem;
+  margin-bottom: 2.85714286rem;
+  font-weight: 400;
+}
+.heading-sub.xlarge,
+.heading-section-sub.xlarge,
+.heading-content-sub.xlarge,
+.heading-page-sub.xlarge {
+  font-size: 2.28571429rem;
+}
+.heading-sub.large,
+.heading-section-sub.large,
+.heading-content-sub.large,
+.heading-page-sub.large {
+  font-size: 1.85714286rem;
+}
+.heading-sub.small,
+.heading-section-sub.small,
+.heading-content-sub.small,
+.heading-page-sub.small {
+  font-size: 1.42857143rem;
+}
+.heading-sub.mini,
+.heading-section-sub.mini,
+.heading-content-sub.mini,
+.heading-page-sub.mini {
+  font-size: 1.28571429rem;
+}
+.heading-sub.tiny,
+.heading-section-sub.tiny,
+.heading-content-sub.tiny,
+.heading-page-sub.tiny {
+  font-size: 1.14285714rem;
+}
+/*----------  PRE HEADING  ----------*/
+.heading-pre {
+  font-size: 1.57142857rem;
+  margin-bottom: 1.42857143rem;
+  font-weight: 400;
+}
+.heading-pre.xlarge {
+  font-size: 2.28571429rem;
+}
+.heading-pre.large {
+  font-size: 1.85714286rem;
+}
+.heading-pre.small {
+  font-size: 1.42857143rem;
+}
+.heading-pre.mini {
+  font-size: 1.28571429rem;
+}
+.heading-pre.tiny {
+  font-size: 1.14285714rem;
+}
+/*----------  GLOBAL TYPO COLOR  ----------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.heading,
+.heading-content,
+.heading-section,
+.heading-page {
+  color: #1F2229;
+}
+/*----------  LIGHT TITLE  ----------*/
+.typo-light h1,
+.typo-light h2,
+.typo-light h3,
+.typo-light h4,
+.typo-light h5,
+.typo-light h6,
+.typo-light .h1,
+.typo-light .h2,
+.typo-light .h3,
+.typo-light .h4,
+.typo-light .h5,
+.typo-light .h6,
+.typo-light .heading,
+.typo-light .heading,
+.typo-light .heading-content,
+.typo-light .heading-section,
+.typo-light .heading-page,
+.typo-light .heading-sub,
+.typo-light .heading-pre,
+.typo-light p {
+  color: #fff;
+}
+/*----------  SUB-TITLE  ----------*/
+.heading-sub,
+.heading-section-sub,
+.heading-content-sub,
+.heading-page-sub {
+  color: #6f6f6f;
+}
+/*----------  LIGHT SUB-TITLE  ----------*/
+.typo-light .heading-sub,
+.typo-light .heading-section-sub,
+.typo-light .heading-content-sub,
+.typo-light .heading-page-sub {
+  color: #e1e1e1;
+}
+/*----------  P TAG TEXT  ----------*/
+p,
+body {
+  color: #6f6f6f;
+}
+/*----------  LIGHT P TAG TEXT  ----------*/
+.typo-light p {
+  color: #e1e1e1;
+}
+/*=============================================
+= PAGE LOADER
+=============================================*/
+#loader {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background: #1F2229;
+}
+#loader .load-three-bounce {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  width: 80px;
+  margin-left: -40px;
+  margin-top: -10px;
+}
+#loader .load-three-bounce .load-child {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  animation: load-three-bounce 1.4s ease-in-out 0s infinite both;
+}
+#loader .load-three-bounce .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+#loader .load-three-bounce .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+@-webkit-keyframes load-three-bounce {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: sacle(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-o-keyframes load-three-bounce {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: sacle(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-moz-keyframes load-three-bounce {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: sacle(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes load-three-bounce {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: sacle(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+/*=============================================
+= MENU ICON
+=============================================*/
+.menu-icon-wrp .menu-icon {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+.menu-icon-wrp .menu-icon .bar {
+  position: absolute;
+  top: 50%;
+  background-color: #fff;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  height: 2px;
+  transition: 0.3s;
+}
+.menu-icon-wrp .menu-icon .bar:before,
+.menu-icon-wrp .menu-icon .bar:after {
+  position: absolute;
+  content: "";
+  background-color: #fff;
+  width: 100%;
+  height: 2px;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  transition: 0.3s;
+}
+.menu-icon-wrp .menu-icon .bar:before {
+  top: -8px;
+}
+.menu-icon-wrp .menu-icon .bar:after {
+  top: 8px;
+}
+.menu-icon-wrp .menu-icon.active .bar {
+  background: transparent;
+}
+.menu-icon-wrp .menu-icon.active .bar:after,
+.menu-icon-wrp .menu-icon.active .bar:before {
+  top: 0;
+}
+.menu-icon-wrp .menu-icon.active .bar:after {
+  transform: rotate(45deg);
+}
+.menu-icon-wrp .menu-icon.active .bar:before {
+  transform: rotate(-45deg);
+}
+.dark.menu-icon-wrp .menu-icon .bar {
+  background-color: #1F2229;
+}
+.dark.menu-icon-wrp .menu-icon .bar:before,
+.dark.menu-icon-wrp .menu-icon .bar:after {
+  background-color: #1F2229;
+}
+.dark.menu-icon-wrp .menu-icon.active .bar {
+  background: transparent;
+}
+.menu-icon-wrp.style-1 .menu-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.menu-icon-wrp.style-1 .menu-icon .bar {
+  position: absolute;
+  top: 50%;
+  background-color: #fff;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  height: 2px;
+  transition: 0.3s;
+}
+.menu-icon-wrp.style-1 .menu-icon .bar:before,
+.menu-icon-wrp.style-1 .menu-icon .bar:after {
+  position: absolute;
+  content: "";
+  background-color: #fff;
+  width: 100%;
+  height: 2px;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  transition: 0.3s;
+}
+.menu-icon-wrp.style-1 .menu-icon .bar:before {
+  top: -6px;
+}
+.menu-icon-wrp.style-1 .menu-icon .bar:after {
+  top: 6px;
+}
+.menu-icon-wrp.style-1 .menu-icon.active .bar {
+  background: transparent;
+}
+.menu-icon-wrp.style-1 .menu-icon.active .bar:after,
+.menu-icon-wrp.style-1 .menu-icon.active .bar:before {
+  top: 0;
+}
+.menu-icon-wrp.style-1 .menu-icon.active .bar:after {
+  transform: rotate(45deg);
+}
+.menu-icon-wrp.style-1 .menu-icon.active .bar:before {
+  transform: rotate(-45deg);
+}
+.dark.menu-icon-wrp.style-1 .menu-icon .bar {
+  background-color: #1F2229;
+}
+.dark.menu-icon-wrp.style-1 .menu-icon .bar:before,
+.dark.menu-icon-wrp.style-1 .menu-icon .bar:after {
+  background-color: #1F2229;
+}
+.dark.menu-icon-wrp.style-1 .menu-icon.active .bar {
+  background: transparent;
+}
+/*=============================================
+= POPUP
+=============================================*/
+.popup-content {
+  max-width: 600px;
+  min-width: 300px;
+  position: relative;
+  margin: auto;
+  text-align: center;
+  background-color: #ffffff;
+}
+.popup-content .pop-body,
+.popup-content .pop-header {
+  padding: 60px;
+}
+.popup-content .mfp-close {
+  color: #ffffff;
+  width: 40px;
+  height: 40px;
+  top: -40px;
+  right: -9px;
+  font-size: 30px;
+}
+.popup-content.reset {
+  max-width: none;
+  min-width: none;
+  background-color: transparent;
+  text-align: left;
+}
+.popup-content.container {
+  padding: 0px;
+}
+.popup-content._1 .mfp-close {
+  color: rgba(0, 0, 0, 0.5);
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  top: 0;
+  right: 0;
+}
+/*=============================================
+= TOOTTIP
+=============================================*/
+.tooltip-light .tooltip .tooltip-inner {
+  background-color: #fff;
+  color: #1F2229;
+  font-weight: bold;
+}
+.tooltip-light .tooltip .arrow {
+  color: #fff;
+}
+/*=============================================
+= BG ANIMATION
+=============================================*/
+@keyframes scroll {
+  from {
+    left: 0px;
+  }
+  50% {
+    left: -1000px;
+  }
+  to {
+    left: -1920px;
+  }
+}
+@-webkit-keyframes scroll {
+  from {
+    left: 0px;
+  }
+  50% {
+    left: -1000px;
+  }
+  to {
+    left: -1920px;
+  }
+}
+.bg-anim {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: repeat-x;
+}
+.bg-anim {
+  -webkit-animation: scroll 60s infinite linear;
+  animation: scroll 60s infinite linear;
+}
+/*=============================================
+= SHAP
+=============================================*/
+.ckav-shap {
+  width: 100%;
+  position: absolute;
+  bottom: -1px;
+  transform: rotateX(180deg);
+}
+/*=============================================
+= HEADER
+=============================================*/
+/*----------  LOGO  ----------*/
+.logo-wrapper {
+  width: 80px;
+}
+/*=============================================
+= NAVIGATION
+=============================================*/
+.navigation-section {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.navigation-a {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.4s ease-out;
+  flex-direction: column;
+}
+.navigation-a .icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  opacity: 0.8;
+  transition: all 0.3s ease-out;
+}
+.navigation-a .text {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.navigation-a .line {
+  width: 20px;
+  height: 2px;
+  background-color: transparent;
+  transition: all 0.3s ease-out;
+  margin-top: 5px;
+}
+.navigation-a:hover {
+  color: #fff;
+  transition: all 0.3s ease-out;
+}
+.navigation-a:hover .icon {
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+.navigation-a:hover .line {
+  transition: all 0.3s ease-out;
+  background-color: #fff;
+}
+.active-navigation.navigation-a {
+  transform: scale(1.3);
+  transition: all 0.3s ease-out;
+}
+/*=============================================
+= POPUP SECTION
+=============================================*/
+.popup-section .inner-wrapper {
+  position: relative;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 25px 70px 0 rgba(0, 0, 0, 0.65);
+}
+.popup-section .popup-close {
+  border-radius: 20px;
+  margin: 10px;
+  font-size: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+.popup-section .header-area {
+  text-align: center;
+  z-index: 1;
+  position: absolute;
+  top: -30px;
+  background-color: #0095FB;
+  padding: 10px 30px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  box-shadow: 0 25px 70px 0 rgba(0, 0, 0, 0.3);
+}
+.popup-section .content-area {
+  position: relative;
+}
+/*=============================================
+= TESTIMONIALS
+=============================================*/
+.testimonials-section .zoom-carousel .owl-stage-outer {
+  padding-bottom: 30px;
+}
+.owl-carousel .owl-item.center .testimonial-box {
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
+}
