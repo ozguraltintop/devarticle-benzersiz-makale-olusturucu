@@ -2,6 +2,7 @@
 # devarticle
 
 İstenilen anahtar kelimeye ve kelime sayısına göre talepte bulunup , benzersiz bir makale çıktısı veren ChatGPT API ve vPHP kullanılarak geliştirilmiş açık kaynaklı bir yazılımdır.
+Test
 
 
 
